@@ -7,22 +7,23 @@ import jwt
 # User class inherits from db.Model class which declares the class as a model for sqlalchemy
 class User(db.Model):
     """ User Model for storing user related details """
-    __tablename__ = "user"
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
     # User Authentication fields
     email = db.Column(db.String(255), unique=True, nullable=False)
+    username = db.Column(db.String(50), unique=True)
+    password_hash = db.Column(db.String(100))
+
+    # User fields
     registered_on = db.Column(db.DateTime, nullable=False)
     public_id = db.Column(db.String(100), unique=True)
     fname = db.Column(db.String(100), unique=True)
     lname = db.Column(db.String(100), unique=True)
-    username = db.Column(db.String(50), unique=True)
-    password_hash = db.Column(db.String(100))
-
     admin = db.Column(db.Boolean, nullable=False, default=False)
 
     # Relationships
-    budgets = relationship("Child", order_by="Child.id")
+    budgets = db.relationship("Budget", backref="user.id", lazy=True)
 
     @property
     def password(self):
