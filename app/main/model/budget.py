@@ -1,9 +1,6 @@
 from .. import db, flask_bcrypt
 import datetime
-from app.main.model.blacklist import BlacklistToken
-from 
 from ..config import key
-import jwt
 
 # Budget class inherits from db.Model class which declares the class as a model for sqlalchemy
 class Budget(db.Model):
