@@ -16,4 +16,4 @@ class Budget(db.Model):
 
     # Relationships
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    user = db.relationship("User", backref=db.backref("budgets", order_by="desc(Budget.set_on)"))
+    # user = db.relationship("User", backref=db.backref("budgets", order_by="desc(Budget.set_on)"))
