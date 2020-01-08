@@ -5,7 +5,7 @@ from ..config import key
 # Budget class inherits from db.Model class which declares the class as a model for sqlalchemy
 class Budget(db.Model):
     """ Budget Model for storing budget related details """
-    __tablename__ = "budgets"
+    __tablename__ = "budget"
 
     # Budget fields
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -16,4 +16,4 @@ class Budget(db.Model):
 
     # Relationships
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    user = db.relationship("User", backref=backref("budgets", order_by="desc(Budget.set_on)"))
+    user = db.relationship("User", backref=db.backref("budgets", order_by="desc(Budget.set_on)"))

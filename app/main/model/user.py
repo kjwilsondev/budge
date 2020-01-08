@@ -7,7 +7,7 @@ import jwt
 # User class inherits from db.Model class which declares the class as a model for sqlalchemy
 class User(db.Model):
     """ User Model for storing user related details """
-    __tablename__ = "users"
+    __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
     # User Authentication fields

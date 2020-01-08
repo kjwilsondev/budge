@@ -41,23 +41,6 @@ Run the following command
 pip freeze > requirements.txt
 ```
 
-## Initiate Database Folder
-
-Initiate a migration folder using init command for alembic to perform the migrations.
-
-```os
-python3 manage.py db init
-python3 manage.py db migrate --message 'initial database migration'
-python3 manage.py db upgrade
-```
-
-Should have new sqlLite database
-flask_boilerplate_main.db
-generated inside main folder
-
-Each time the database model changes,
-repeat the migrate and upgrade commands
-
 ## Virtual Env Commands
 
 Create Env
@@ -104,20 +87,3 @@ rmvirtualenv [name]
 ### Git Branching
 
 <https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch>
-
-## Database Creation
-
-Import
-
-```os
-pip install flask-sqlalchemy
-brew install postgres
-which createdb
-```
-
-Create and start db
-
-```os
-initdb new-db
-pg_ctl -D budget-db -l logfile start
-```

@@ -7,6 +7,7 @@ from flask_script import Manager
 from app import blueprint
 from app.main.model import user
 from app.main.model import blacklist
+from app.main.model import budget
 
 # creates the application instance with the required parameter
 # dev, prod, test
