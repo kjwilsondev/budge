@@ -48,6 +48,24 @@ def get_all_users():
 def get_a_user(public_id):
     return User.query.filter_by(public_id=public_id).first()
 
+def delete_user(public_id):
+    user = User.query.filter_by(email=data['email']).first()
+    if user:
+        db.session.delete(self)
+        db.session.commit()
+        response_object = {
+            'status': 'success',
+            'message': 'User deleted.'
+        }
+        return response_object, 201
+    else:
+        response_object = {
+            'status': 'fail',
+            'message': 'User not found.',
+        }
+        return response_object, 409
+
+
 def save_changes(data):
     # commits the changes to database
     db.session.add(data)
