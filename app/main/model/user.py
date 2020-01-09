@@ -18,8 +18,8 @@ class User(db.Model):
     # User fields
     registered_on = db.Column(db.DateTime, nullable=False)
     public_id = db.Column(db.String(100), unique=True)
-    fname = db.Column(db.String(100), unique=True)
-    lname = db.Column(db.String(100), unique=True)
+    # fname = db.Column(db.String(100), nullable=True)
+    # lname = db.Column(db.String(100), nullable=True)
     admin = db.Column(db.Boolean, nullable=False, default=False)
 
     # Relationships
