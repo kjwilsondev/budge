@@ -18,10 +18,10 @@ authorizations = {
 }
 
 api = Api(blueprint,
-          title='Credit Swag RestPlus Backend',
+          title='Budge',
           version='1.0',
           authorizations=authorizations,
-          description='fintech for students by students'
+          description='instant budgeting for spending on the go'
           )
 
 api.add_namespace(user_ns, path='/user')

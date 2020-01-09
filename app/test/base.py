@@ -4,11 +4,7 @@ from manage import app
 
 
 class BaseTestCase(TestCase):
-    """
-    Base Test
-    sets up our test environment ready 
-    before and after every test case that extends it
-    """
+    """ Base Tests """
 
     def create_app(self):
         app.config.from_object('app.main.config.TestingConfig')
