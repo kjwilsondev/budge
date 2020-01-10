@@ -9,8 +9,8 @@ def save_new_user(data):
     if not user:
         new_user = User(
             public_id=str(uuid.uuid4()),
-            # fname=data['fname'],
-            # lname=data['lname'],
+            fname=data['fname'],
+            lname=data['lname'],
             email=data['email'],
             password=data['password'],
             registered_on=datetime.datetime.utcnow()

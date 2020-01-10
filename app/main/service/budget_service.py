@@ -8,8 +8,8 @@ def save_new_budget(data):
     new_budget = Budget(
         set_on = datetime.datetime.utcnow(),
         length = data['length'],
-        amount = data['amount'],
-        success= data['success'],
+        amount = float(data['amount']),
+        success= data['success'] == "True",
         public_id= data['public_id']
     )
     save_changes(new_budget)

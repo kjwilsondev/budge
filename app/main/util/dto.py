@@ -21,7 +21,6 @@ class UserDto:
 class BudgetDto:
     api = Namespace('budget', description='budget operations')
     budget = api.model('budget', {
-        'set_on': fields.String(required=True, description='time budget set'),
         'length': fields.String(required=True, description='time length of budget'),
         'amount': fields.String(required=True, description='budget amount'),
         'success': fields.String(required=True, description='True if user spent less than budget'),

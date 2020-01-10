@@ -10,12 +10,24 @@ api = BudgetDto.api
 _user = UserDto.user
 _budget = BudgetDto.budget
 
+@api.route('/<public_id>/')
+@api.param('public_id', 'The User identifier')
+@api.response(404, 'User not found.')
+class Budget(Resource):
+    @api.response(201, 'Budget successfully created.')
+    @api.doc('create a new budget')
+    @api.expect(_budget, validate=True)
+    def post(self, public_id):
+        """Creates a new Budget """
+        data = request.json
+        return save_new_budget(data=data)
+
 @api.route('/<public_id>/budgets')
 @api.param('public_id', 'The User identifier')
 @api.response(404, 'User not found.')
 class BudgetList(Resource):
     @api.doc('get a users list of budgets')
-    @api.marshal_with(_budget, envelope='data')
+    @api.marshal_list_with(_budget, envelope='data')
     def get(self, public_id):
         """get a users budgets given their identifier"""
         user = get_a_user(public_id)
@@ -24,11 +36,3 @@ class BudgetList(Resource):
         else:
             budgets = get_all_user_budgets(public_id)
             return budgets
-
-    @api.response(201, 'Budget successfully created.')
-    @api.doc('create a new budget')
-    @api.expect(_budget, validate=True)
-    def post(self):
-        """Creates a new Budget """
-        data = request.json
-        return save_new_budget(data=data)
