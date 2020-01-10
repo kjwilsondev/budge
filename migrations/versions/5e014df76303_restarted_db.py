@@ -1,8 +1,8 @@
-"""took out fname
+"""restarted db
 
-Revision ID: 1f82e5f53225
-Revises: cec715aeaade
-Create Date: 2020-01-09 09:52:05.672608
+Revision ID: 5e014df76303
+Revises: 
+Create Date: 2020-01-10 10:14:40.211591
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1f82e5f53225'
-down_revision = 'cec715aeaade'
+revision = '5e014df76303'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -32,6 +32,8 @@ def upgrade():
     sa.Column('password_hash', sa.String(length=100), nullable=True),
     sa.Column('registered_on', sa.DateTime(), nullable=False),
     sa.Column('public_id', sa.String(length=100), nullable=True),
+    sa.Column('fname', sa.String(length=100), nullable=True),
+    sa.Column('lname', sa.String(length=100), nullable=True),
     sa.Column('admin', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
@@ -44,8 +46,8 @@ def upgrade():
     sa.Column('length', sa.String(), nullable=False),
     sa.Column('amount', sa.Float(), nullable=False),
     sa.Column('success', sa.Boolean(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
+    sa.Column('public_id', sa.String(), nullable=True),
+    sa.ForeignKeyConstraint(['public_id'], ['user.public_id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
