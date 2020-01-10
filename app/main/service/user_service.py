@@ -4,7 +4,6 @@ import datetime
 from app.main import db
 from app.main.model.user import User
 
-
 def save_new_user(data):
     user = User.query.filter_by(email=data['email']).first()
     if not user:
