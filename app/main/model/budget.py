@@ -15,5 +15,5 @@ class Budget(db.Model):
     success = db.Column(db.Boolean, nullable=False)
 
     # Relationships
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.public_id'))
     # user = db.relationship("User", backref=db.backref("budgets", order_by="desc(Budget.set_on)"))

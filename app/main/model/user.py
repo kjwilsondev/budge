@@ -23,7 +23,7 @@ class User(db.Model):
     admin = db.Column(db.Boolean, nullable=False, default=False)
 
     # Relationships
-    budgets = db.relationship("Budget", lazy='select', backref=db.backref("user.id", lazy='joined'))
+    budgets = db.relationship("Budget", lazy='select', backref=db.backref("user.public_id", lazy='joined'))
 
     @property
     def password(self):
