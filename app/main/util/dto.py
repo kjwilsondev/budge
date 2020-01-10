@@ -10,21 +10,20 @@ class AuthDto:
 class UserDto:
     api = Namespace('user', description='user operations')
     user = api.model('user', {
-        # 'fname': fields.String(required=True, description='user first name'),
-        # 'lname': fields.String(required=True, description='user last name'),
+        'fname': fields.String(required=False, description='user first name'),
+        'lname': fields.String(required=False, description='user last name'),
         'email': fields.String(required=True, description='user email address'),
         'password': fields.String(required=True, description='user password')
         # TODO: plaid token
         # TODO: phone numbers for texting updates
     })
 
-# class BudgetDto:
-#     api = Namespace('budget', description='budget operations')
-#     budget = api.model('budget', {
-#         'fname': fields.String(required=True, description='user first name'),
-#         'lname': fields.String(required=True, description='user last name'),
-#         'email': fields.String(required=True, description='user email address'),
-#         'password': fields.String(required=True, description='user password')
-#         # TODO: plaid token
-#         # TODO: phone numbers for texting updates
-#     })
+class BudgetDto:
+    api = Namespace('budget', description='budget operations')
+    budget = api.model('budget', {
+        'set_on': fields.String(required=True, description='time budget set'),
+        'length': fields.String(required=True, description='time length of budget'),
+        'amount': fields.String(required=True, description='budget amount'),
+        'success': fields.String(required=True, description='True if user spent less than budget'),
+        'user_id': fields.String(required=True, description='True if user spent less than budget')
+    })

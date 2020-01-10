@@ -4,14 +4,6 @@ import datetime
 from app.main import db
 from app.main.model.budget import Budget
 
-# Budget fields
-# id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-# set_on = db.Column(db.DateTime, nullable=False)
-# length = db.Column(db.String, nullable=False)
-# amount = db.Column(db.Float, nullable=False)
-# success = db.Column(db.Boolean, nullable=False)
-# user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
 def save_new_budget(data):
     new_budget = Budget(
         set_on = datetime.datetime.utcnow(),
