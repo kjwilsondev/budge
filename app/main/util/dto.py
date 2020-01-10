@@ -25,5 +25,5 @@ class BudgetDto:
         'length': fields.String(required=True, description='time length of budget'),
         'amount': fields.String(required=True, description='budget amount'),
         'success': fields.String(required=True, description='True if user spent less than budget'),
-        'user_id': fields.String(required=True, description='True if user spent less than budget')
+        'public_id': fields.String(required=True, description='True if user spent less than budget')
     })

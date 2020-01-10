@@ -10,7 +10,7 @@ def save_new_budget(data):
         length = data['length'],
         amount = data['amount'],
         success= data['success'],
-        user_id= data['user_id']
+        public_id= data['public_id']
     )
     save_changes(new_budget)
     response_object = {
@@ -29,8 +29,8 @@ def get_all_budgets():
     return Budget.query.all()
 
 
-def get_all_user_budgets(user_id):
-    return Budget.query.filter_by(user_id=user_id).all()
+def get_all_user_budgets(public_id):
+    return Budget.query.filter_by(public_id=public_id).all()
 
 
 def save_changes(data):
