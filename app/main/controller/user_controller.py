@@ -41,7 +41,7 @@ class User(Resource):
         else:
             return user
 
-# @api.route('/<public_id>')
+# @api.route('/<public_id>/budgets')
 # @api.param('public_id', 'The User identifier')
 # @api.response(404, 'User not found.')
 # class User(Resource):
