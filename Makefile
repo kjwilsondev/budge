@@ -19,7 +19,6 @@ run:
 	python3 manage.py run
 
 db-update:
-	python3 manage.py db migrate
 	python3 manage.py db upgrade
 
 all: clean install tests run
