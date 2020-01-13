@@ -23,6 +23,6 @@ class BudgetDto:
     budget = api.model('budget', {
         'length': fields.String(required=True, description='time length of budget'),
         'amount': fields.String(required=True, description='budget amount'),
-        'success': fields.String(required=True, description='True if user spent less than budget'),
+        'success': fields.String(required=False, description='True if user spent less than budget'),
         'public_id': fields.String(required=True, description='True if user spent less than budget')
     })

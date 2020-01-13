@@ -2,7 +2,18 @@
 
 ## Quick Budgeting for Impulse Spenders
 
-### To init project:
+**API currently:**
+
+creates user
+authenticates user
+authorizes user
+retrieves all users
+
+creates budget
+connects budget to user.public_id
+retrieves all budgets by user
+
+### Init project
 
     Start pip virtual env: virtualenv venv
 
@@ -19,8 +30,6 @@
     To run test: make tests
 
     To run application: make run
-
-    To update db (PostgreSQL): make db-update
 
 ### Viewing the app
 
